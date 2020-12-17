@@ -2,22 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
-export default function Home() {
+export default function ProfSubPage() {
     const history = useHistory();
 
     return(
-        <HomeContainer>
+        <ProfSubContainer>
             <Container>
-                <Button onClick={() => history.push('/prof-subject')}>Ver lista de provas</Button>
+                <Button onClick={() => history.push('/subject-list')}>Agrupar por matérias</Button>
             </Container>
             <Container>
-                <Button onClick={() => history.push('/add-exam')}>Adicionar prova</Button>
+                <Button onClick={() => history.push('/professor-list')}>Agrupar por professor</Button>
             </Container>
-        </HomeContainer>
+        </ProfSubContainer>
     );
 }
 
-const HomeContainer = styled.div`
+const ProfSubContainer = styled.div`
     display: flex;
     margin: 120px 0 0 20%;
 `;

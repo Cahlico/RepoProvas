@@ -1,5 +1,14 @@
 import React from 'react';
 
+import { Container } from '../styles/styledExamList';
+
 export default function ExamList() {
-    return (<h1> test </h1>)
+    return (
+        <Container>
+        
+        
+        
+        
+        </Container>
+    );
 }
