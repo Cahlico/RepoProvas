@@ -23,10 +23,20 @@ export const Container = styled.div`
         margin-right: 600px;
         font-size: 22px;
     }
+
+    @media(max-width: 600px) {
+        strong {
+            margin-right: 0;
+        }
+    }
 `;
 
 export const Label = styled.h1`
     font-size: 24px;
     font-weight: 900;
     margin-right: 600px;
+
+    @media(max-width: 600px) {
+        margin-right: 0;
+    }
 `;

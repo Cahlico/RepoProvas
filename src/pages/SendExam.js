@@ -76,7 +76,7 @@ export default function ExamList() {
                 {professors.length !== 0
                     ? professors.map(i => (
                         <button 
-                            key={i.id + 55}
+                            key={i.id + i.subjectId}
                             onClick={() => setChosenProfessor(i.name)}
                         >{i.name}</button>
                     ))

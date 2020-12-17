@@ -20,6 +20,11 @@ export default function ProfSubPage() {
 const ProfSubContainer = styled.div`
     display: flex;
     margin: 120px 0 0 20%;
+    
+    @media(max-width: 600px) {
+        margin: 20px 5%;
+        display: block;
+    }
 `;
 
 const Container = styled.nav`
@@ -30,6 +35,11 @@ const Container = styled.nav`
     flex-shrink: 0;
     margin-right: 10%;
     padding: 10px;
+
+    @media(max-width: 600px) {
+        margin: 10px 0;
+        width: 100%;
+    }
 `;
 
 const Button = styled.button`
