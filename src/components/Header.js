@@ -11,7 +11,7 @@ export default function Header() {
 
 const Container = styled.header`
     width: 100%;
-    background-image: linear-gradient(-90deg, #4185a3, #163d4f);
+    background-image: linear-gradient(-90deg, #54a4c7, #163d4f);
     text-align: center;
     color: #FFF;
 `;
