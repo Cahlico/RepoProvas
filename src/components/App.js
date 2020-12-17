@@ -6,13 +6,15 @@ import Header from './Header';
 import ExamList from '../pages/ExamList';
 import SendExam from '../pages/SendExam';
 import ProfSubPage from '../pages/ProfSubPage';
-import SubjectList from '../pages/SubjectList'
+import SubjectList from '../pages/SubjectList';
+import ProfessorList from '../pages/ProfessorList';
 
 export default function App() {
     return(
         <Router>
             <Header />
             <Switch>
+                <Route path='/professor-list' component={ProfessorList} />
                 <Route path='/subject-list' component={SubjectList} />
                 <Route path='/prof-subject' component={ProfSubPage} />
                 <Route path='/add-exam' component={SendExam} />

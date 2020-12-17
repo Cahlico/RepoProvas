@@ -4,14 +4,14 @@ import { useHistory } from 'react-router-dom';
 
 import { Container, Label } from '../styles/styledLists';
 
-export default function SubjectList() {
-    const [subjects, setSubjects] = useState([]);
+export default function ProfessorsList() {
+    const [professors, setProfessors] = useState([]);
     const history = useHistory();
 
     useEffect(() => {
-        const request = axios.get('http://localhost:3000/api/v1/subjects');
+        const request = axios.get('http://localhost:3000/api/v1/professors');
         request.then(resp => {
-            setSubjects(resp.data);
+            setProfessors(resp.data);
         });
         request.catch(() => {
             alert('houve um erro no carregamento da página, tente novamente');
@@ -20,23 +20,21 @@ export default function SubjectList() {
 
     return(
         <Container>
-            {subjects.length !== 0
+            {professors.length !== 0
                 ? <>
                     <div>
-                        <Label>Matérias</Label>
-                        <Label>Período</Label>
+                        <Label>Professores:</Label>
                     </div>
-                    {subjects.map(i => (
+                    {professors.map(i => (
                         <div>
                             <button 
                                 key={i.id}
-                                onClick={() => history.push({ pathname:`/exam-list`, state: i.name })}
+                                onClick={() => history.push({ pathname:`/exam-list`, state: i.subjectId })}
                             >{i.name}</button>
-                            <strong>{i.period}</strong>
                         </div>
                     ))}
                 </>
-                : <p>Carregando matérias disponíveis...</p>
+                : <p>Carregando professores disponíveis...</p>
             }
         </Container>
     );
