@@ -8,6 +8,7 @@ export const Container = styled.div`
     }
 
     button {
+        width: 200px;
         border: none;
         outline-style: none;
         padding: 5px;
@@ -20,8 +21,14 @@ export const Container = styled.div`
     }
 
     strong {
-        margin-right: 600px;
+        margin-right: 5px;
         font-size: 22px;
+        color: #FFF;
+    }
+
+    h1 {
+        font-size: 24px;
+        font-weight: 900;
     }
 
     @media(max-width: 600px) {
@@ -34,7 +41,6 @@ export const Container = styled.div`
 export const Label = styled.h1`
     font-size: 24px;
     font-weight: 900;
-    margin-right: 600px;
 
     @media(max-width: 600px) {
         margin-right: 0;

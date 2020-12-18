@@ -11,6 +11,7 @@ export default function ProfessorsList() {
     useEffect(() => {
         const request = axios.get('http://localhost:3000/api/v1/professors');
         request.then(resp => {
+            console.log(resp.data);
             setProfessors(resp.data);
         });
         request.catch(() => {
@@ -23,13 +24,15 @@ export default function ProfessorsList() {
             {professors.length !== 0
                 ? <>
                     <div>
-                        <Label>Professores:</Label>
+                        <h1>Professores:</h1>
+                        <Label>Provas:</Label>
                     </div>
                     {professors.map(e => (
-                        <div key={e.id}>
+                        <div key={e.name}>
                             <button
                                 onClick={() => history.push({ pathname:`/exam-list`, state: e.subjectId })}
                             >{e.name}</button>
+                            <strong>{e.count.count}</strong>
                         </div>
                     ))}
                 </>

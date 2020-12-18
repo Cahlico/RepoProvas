@@ -23,14 +23,15 @@ export default function SubjectList() {
             {subjects.length !== 0
                 ? <>
                     <div>
-                        <Label>Matérias</Label>
-                        <Label>Período</Label>
+                        <Label>Matérias:</Label>
+                        <Label>Período:</Label>
                     </div>
                     {subjects.map(i => (
                         <div key={i.id}>
                             <button 
                                 onClick={() => history.push({ pathname:`/exam-list`, state: i.name })}
                             >{i.name}</button>
+                            <strong>N: {i.count.count}</strong>
                             <strong>{i.period}</strong>
                         </div>
                     ))}
