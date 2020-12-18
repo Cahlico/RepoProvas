@@ -104,8 +104,8 @@ export default function ExamList() {
                         placeholder='prova' value={examType.toUpperCase()}
                     />
                     {clicked
-                        ? <button onClick={sendExam}>Enviar</button>
-                        : <button>Enviando...</button>
+                        ? <button>Enviando...</button>
+                        : <button onClick={sendExam}>Enviar</button>
                     }
                 </div>
                 : ''
