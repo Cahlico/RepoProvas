@@ -17,7 +17,7 @@ export default function ExamList() {
     const history = useHistory();
 
     useEffect(() => {
-        const request = axios.get('http://localhost:3000/api/v1/subjects');
+        const request = axios.get('https://repo-provas-calico-api.herokuapp.com/api/v1/subjects');
         request.then(resp => {
             setSubjects(resp.data);
         });
@@ -30,7 +30,7 @@ export default function ExamList() {
         setSubjectId(subject.id);
         setChosenSubject(subject.name);
 
-        const request = axios.post('http://localhost:3000/api/v1/subjects/professor', { name: subject.name });
+        const request = axios.post('https://repo-provas-calico-api.herokuapp.com/api/v1/subjects/professor', { name: subject.name });
         request.then(resp => { 
             setProfessors(resp.data);
         });
@@ -47,7 +47,7 @@ export default function ExamList() {
 
         const body = { link, examType, subjectId };
 
-        const request = axios.post('http://localhost:3000/api/v1/exams', body);
+        const request = axios.post('https://repo-provas-calico-api.herokuapp.com/api/v1/exams', body);
         request.then(() => {
             alert('prova adicionada com sucesso');
             history.push('/');

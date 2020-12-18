@@ -13,9 +13,9 @@ export default function ExamList() {
         let request;
 
         if(typeof state === 'number') {
-            request = axios.get(`http://localhost:3000/api/v1/exams/professor:${state}`);
+            request = axios.get(`https://repo-provas-calico-api.herokuapp.com/api/v1/exams/professor:${state}`);
         } else {
-            request = axios.get(`http://localhost:3000/api/v1/exams/subject:${state}`);
+            request = axios.get(`https://repo-provas-calico-api.herokuapp.com/api/v1/exams/subject:${state}`);
         }
 
         request.then(resp => {

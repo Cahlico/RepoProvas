@@ -19,7 +19,7 @@ export default function AddSubject() {
         setClicked(true);
         
         const body = { name: subject, professorName, period: parseInt(period)}
-        const request = axios.post('http://localhost:3000/api/v1/subjects', body);
+        const request = axios.post('https://repo-provas-calico-api.herokuapp.com/api/v1/subjects', body);
         request.then(() =>  history.goBack());
         
         request.catch(() => {

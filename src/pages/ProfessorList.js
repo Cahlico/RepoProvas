@@ -9,7 +9,7 @@ export default function ProfessorsList() {
     const history = useHistory();
 
     useEffect(() => {
-        const request = axios.get('http://localhost:3000/api/v1/professors');
+        const request = axios.get('https://repo-provas-calico-api.herokuapp.com/api/v1/professors');
         request.then(resp => {
             console.log(resp.data);
             setProfessors(resp.data);

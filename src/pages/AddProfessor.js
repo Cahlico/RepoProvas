@@ -18,7 +18,7 @@ export default function AddProfessor() {
         setClicked(true);
         
         const body = { name: state, professorName }
-        const request = axios.post('http://localhost:3000/api/v1/subject/new-professor', body);
+        const request = axios.post('https://repo-provas-calico-api.herokuapp.com/api/v1/subject/new-professor', body);
         request.then(() =>  history.goBack());
         
         request.catch(() => {

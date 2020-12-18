@@ -9,7 +9,7 @@ export default function SubjectList() {
     const history = useHistory();
 
     useEffect(() => {
-        const request = axios.get('http://localhost:3000/api/v1/subjects');
+        const request = axios.get('https://repo-provas-calico-api.herokuapp.com/api/v1/subjects');
         request.then(resp => {
             setSubjects(resp.data);
         });
