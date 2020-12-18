@@ -27,9 +27,8 @@ export default function SubjectList() {
                         <Label>Período</Label>
                     </div>
                     {subjects.map(i => (
-                        <div>
+                        <div key={i.id}>
                             <button 
-                                key={i.id}
                                 onClick={() => history.push({ pathname:`/exam-list`, state: i.name })}
                             >{i.name}</button>
                             <strong>{i.period}</strong>

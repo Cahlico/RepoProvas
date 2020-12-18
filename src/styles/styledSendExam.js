@@ -28,7 +28,7 @@ export const Container = styled.div`
     button {
         background-color: #54a4c7;
         color: #FFF;
-    }   
+    }
 `;
 
 export const Mask = styled(InputMask)`

@@ -8,12 +8,14 @@ import SendExam from '../pages/SendExam';
 import ProfSubPage from '../pages/ProfSubPage';
 import SubjectList from '../pages/SubjectList';
 import ProfessorList from '../pages/ProfessorList';
+import AddSubject from '../pages/AddSubject';
 
 export default function App() {
     return(
         <Router>
             <Header />
             <Switch>
+                <Route path='/add-subject' component={AddSubject} />
                 <Route path='/professor-list' component={ProfessorList} />
                 <Route path='/subject-list' component={SubjectList} />
                 <Route path='/prof-subject' component={ProfSubPage} />

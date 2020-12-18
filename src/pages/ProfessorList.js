@@ -25,12 +25,11 @@ export default function ProfessorsList() {
                     <div>
                         <Label>Professores:</Label>
                     </div>
-                    {professors.map(i => (
-                        <div>
-                            <button 
-                                key={i.id}
-                                onClick={() => history.push({ pathname:`/exam-list`, state: i.subjectId })}
-                            >{i.name}</button>
+                    {professors.map(e => (
+                        <div key={e.id}>
+                            <button
+                                onClick={() => history.push({ pathname:`/exam-list`, state: e.subjectId })}
+                            >{e.name}</button>
                         </div>
                     ))}
                 </>

@@ -13,7 +13,7 @@ export default function ExamList() {
     const [subjectId, setSubjectId] = useState(null);
     const [clicked, setClicked] = useState(false);
     
-    const history = useHistory()
+    const history = useHistory();
 
     useEffect(() => {
         const request = axios.get('http://localhost:3000/api/v1/subjects');
@@ -61,12 +61,15 @@ export default function ExamList() {
             <div>
                 <h2>Selecione uma matéria:</h2>
                 {subjects.length !== 0
-                    ? subjects.map(i => (
-                        <button 
-                            key={i.id}
-                            onClick={() => findProfessor(i)}
-                        >{i.name}</button>
-                    ))
+                    ? <>
+                        {subjects.map(i => (
+                            <button 
+                                key={i.id}
+                                onClick={() => findProfessor(i)}
+                            >{i.name}</button>
+                        ))}
+                        <button onClick={() => history.push('/add-subject')}>+ Adicionar matéria</button>
+                    </>
                     : <p>Carregando matérias disponíveis...</p>
                 }
                 
@@ -74,12 +77,15 @@ export default function ExamList() {
             <div>
                 <h2>Selecione o professor da matéria:</h2>
                 {professors.length !== 0
-                    ? professors.map(i => (
-                        <button 
-                            key={i.id + i.subjectId}
-                            onClick={() => setChosenProfessor(i.name)}
-                        >{i.name}</button>
-                    ))
+                    ? <>
+                        {professors.map(i => (
+                            <button
+                                key={i.id + i.subjectId}
+                                onClick={() => setChosenProfessor(i.name)}
+                            >{i.name}</button>
+                        ))}
+                        <button onClick={() => history.push('/add-professor')}>+ Adicionar professor</button>
+                    </>
                     : <p>Selecione uma matéria para encontrar os professores</p>
                 }
             </div>
