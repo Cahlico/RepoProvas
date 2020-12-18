@@ -53,7 +53,7 @@ export default function ExamList() {
             history.push('/');
         });
         request.catch(() => {
-            alert('deu ruim, tente novamente');
+            alert('ocorreu um erro, verifique os dados inseridos e tente novamente');
             setClicked(false);
         })
     }
@@ -103,7 +103,10 @@ export default function ExamList() {
                     <Mask mask="P*" type='text' onChange={e => setExamType(e.target.value)}
                         placeholder='prova' value={examType.toUpperCase()}
                     />
-                    <button onClick={sendExam}>Enviar</button>
+                    {clicked
+                        ? <button onClick={sendExam}>Enviar</button>
+                        : <button>Enviando...</button>
+                    }
                 </div>
                 : ''
             }
