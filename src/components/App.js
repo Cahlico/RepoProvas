@@ -9,12 +9,14 @@ import ProfSubPage from '../pages/ProfSubPage';
 import SubjectList from '../pages/SubjectList';
 import ProfessorList from '../pages/ProfessorList';
 import AddSubject from '../pages/AddSubject';
+import AddProfessor from '../pages/AddProfessor';
 
 export default function App() {
     return(
         <Router>
             <Header />
             <Switch>
+                <Route path='/add-professor' component={AddProfessor} />
                 <Route path='/add-subject' component={AddSubject} />
                 <Route path='/professor-list' component={ProfessorList} />
                 <Route path='/subject-list' component={SubjectList} />

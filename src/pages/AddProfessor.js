@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { Container } from '../styles/styledAddition';
 
-export default function AddSubject() {
-    const [subject, setSubject] = useState('');
+export default function AddProfessor() {
     const [professorName, setProfessorName] = useState('');
-    const [period, setPeriod] = useState('');
-    const history = useHistory();
     const [clicked, setClicked] = useState(false);
+
+    const history = useHistory();
+    const { state } = useLocation()
 
     function addNewSubject(event) {
         event.preventDefault();
 
-        if(subject === '' || professorName === '' || period === '') return alert('Preencha todos os campos');
-        else if(!parseInt(period)) return alert('Período deve ser um número');
+        if(professorName === '') return alert('Preencha todos os campos');
 
         setClicked(true);
         
-        const body = { name: subject, professorName, period: parseInt(period)}
-        const request = axios.post('http://localhost:3000/api/v1/subjects', body);
+        const body = { name: state, professorName }
+        const request = axios.post('http://localhost:3000/api/v1/subject/new-professor', body);
         request.then(() =>  history.goBack());
         
         request.catch(() => {
@@ -33,20 +32,13 @@ export default function AddSubject() {
             <input 
                 type='text' 
                 placeholder='nome da matéria'
-                value={subject}
-                onChange={e => setSubject(e.target.value)}
+                value={state}
             />
             <input
                 type='text'
                 placeholder='nome do professor'
                 value={professorName}
                 onChange={e => setProfessorName(e.target.value)}
-            />
-            <input
-                type='text'
-                placeholder='período'
-                value={period}
-                onChange={e => setPeriod(e.target.value)}
             />
             {clicked
                 ? <button>Enviando matéria...</button>

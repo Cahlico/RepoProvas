@@ -6,6 +6,7 @@ import { Container, Mask } from '../styles/styledSendExam';
 
 export default function ExamList() {
     const [subjects, setSubjects] = useState([]);
+    const [chosenSubject, setChosenSubject] = useState('');
     const [professors, setProfessors] = useState([]);
     const [chosenProfessor, setChosenProfessor] = useState('');
     const [link, setLink] = useState('');
@@ -27,6 +28,7 @@ export default function ExamList() {
 
     function findProfessor(subject) {
         setSubjectId(subject.id);
+        setChosenSubject(subject.name);
 
         const request = axios.post('http://localhost:3000/api/v1/subjects/professor', { name: subject.name });
         request.then(resp => { 
@@ -84,7 +86,7 @@ export default function ExamList() {
                                 onClick={() => setChosenProfessor(i.name)}
                             >{i.name}</button>
                         ))}
-                        <button onClick={() => history.push('/add-professor')}>+ Adicionar professor</button>
+                        <button onClick={() => history.push({pathname:'/add-professor', state:chosenSubject})}>+ Adicionar professor</button>
                     </>
                     : <p>Selecione uma matéria para encontrar os professores</p>
                 }
